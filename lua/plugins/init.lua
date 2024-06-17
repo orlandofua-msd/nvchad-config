@@ -56,5 +56,11 @@ return {
       { "<C-j>", "<pgdown>", desc = "Scroll down main window"},
       { "<C-k>", "<pgup>", desc = "Scroll up main window"},
     }
-  }
+  },
+  {
+    "iamcco/markdown-preview.nvim",
+    cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+    ft = { "markdown" },
+    build = function() vim.fn["mkdp#util#install"]() end,
+  },
 }
