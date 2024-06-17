@@ -8,13 +8,13 @@ return {
   },
 
   -- These are some examples, uncomment them if you want to see them work!
-  -- {
-  --   "neovim/nvim-lspconfig",
-  --   config = function()
-  --     require("nvchad.configs.lspconfig").defaults()
-  --     require "configs.lspconfig"
-  --   end,
-  -- },
+  {
+    "neovim/nvim-lspconfig",
+    config = function()
+      require("nvchad.configs.lspconfig").defaults()
+      require "configs.lspconfig"
+    end,
+  },
   --
   -- {
   -- 	"williamboman/mason.nvim",
@@ -35,4 +35,26 @@ return {
   -- 		},
   -- 	},
   -- },
+  {
+    "jmederosalvarado/roslyn.nvim",
+    lazy = false
+  },
+  {
+    "kdheepak/lazygit.nvim",
+    cmd = {
+      "LazyGit",
+      "LazyGitConfig",
+      "LazyGitCurrentFile",
+      "LazyGitFilter",
+      "LazyGitFilterCurrentFile",
+    },
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+    },
+    keys = {
+      { "<leader>lg", "<cmd>LazyGit<cr>", desc = "LazyGit"},
+      { "<C-j>", "<pgdown>", desc = "Scroll down main window"},
+      { "<C-k>", "<pgup>", desc = "Scroll up main window"},
+    }
+  }
 }
