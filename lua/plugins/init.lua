@@ -29,6 +29,7 @@ return {
         "css-lsp",
         "prettier",
         "omnisharp",
+        "netcoredbg",
       },
     },
     setup = function()
@@ -78,9 +79,16 @@ return {
   {
     "mfussenegger/nvim-dap",
     config = function()
+      require("configs.nvim-dap")
+    end,
+  },
+  {
+    "rcarriga/nvim-dap-ui",
+    config = function()
       local dap, dapui = require("dap"), require("dapui")
 
-      -- UI
+      dapui.setup()
+
       dap.listeners.after.event_initialized["dapui_config"] = function()
         dapui.open()
       end
@@ -90,43 +98,6 @@ return {
       dap.listeners.before.event_exited["dapui_config"] = function()
         dapui.close()
       end
-
-      local lldb = {
-        adapter = {
-          type = "executable",
-          command = "/usr/bin/lldb-vscode",
-          name = "lldb",
-        },
-        config = {
-          {
-            name = "Launch",
-            type = "lldb",
-            request = "launch",
-            program = function()
-              return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
-            end,
-            cwd = "${workspaceFolder}",
-            stopOnEntry = false,
-            args = function()
-              local argument_string = vim.fn.input("Program arguments: ")
-              return vim.fn.split(argument_string, " ", true)
-            end,
-          }
-        }
-      }
-
-      dap.adapters.lldb = lldb.adapter
-
-      dap.configurations.c = lldb.config
-      dap.configurations.cpp = lldb.config
-      dap.configurations.rust = lldb.config
-      dap.configurations.cs = lldb.config
-    end,
-  },
-  {
-    "rcarriga/nvim-dap-ui",
-    config = function()
-      require("dapui").setup()
     end,
     requires = { "mfussenegger/nvim-dap" },
   },
