@@ -14,17 +14,29 @@ return {
       require("nvchad.configs.lspconfig").defaults()
       require "configs.lspconfig"
     end,
+    dependencies = {
+      "williamboman/mason.nvim",
+    },
   },
   --
-  -- {
-  -- 	"williamboman/mason.nvim",
-  -- 	opts = {
-  -- 		ensure_installed = {
-  -- 			"lua-language-server", "stylua",
-  -- 			"html-lsp", "css-lsp" , "prettier"
-  -- 		},
-  -- 	},
-  -- },
+  {
+    "williamboman/mason.nvim",
+    opts = {
+      ensure_installed = {
+        "lua-language-server",
+        "stylua",
+        "html-lsp",
+        "css-lsp",
+        "prettier",
+        "omnisharp",
+      },
+    },
+    setup = function()
+      require("mason").setup({
+        PATH = "prepend",
+      })
+    end
+  },
   --
   -- {
   -- 	"nvim-treesitter/nvim-treesitter",
@@ -134,4 +146,19 @@ return {
     end,
   },
   { "nvim-neotest/nvim-nio" },
+  {
+    "iabdelkareem/csharp.nvim",
+    dependencies = {
+      "williamboman/mason.nvim",
+      "mfussenegger/nvim-dap",
+      "Tastyep/structlog.nvim",
+    },
+    config = function()
+      require("mason").setup()
+      require("csharp").setup()
+    end
+  },
+  {
+    "OmniSharp/omnisharp-vim"
+  },
 }
