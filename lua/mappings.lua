@@ -29,7 +29,7 @@ map("n", "<leader>dp", "<cmd>lua require'dap'.pause.toggle()<CR>", { desc = "Tog
 map("n", "<leader>do", "<cmd>lua require'dap'.repl.open()<CR>", { desc = "Open DAP REPL" })
 map("n", "<leader>dw", "<cmd>lua require'dap.ui.widgets'.hover()<CR>", { desc = "Widgets hover" })
 map("n", "<leader>df", "<cmd>lua require'dap.ui.widgets'.frames()<CR>", { desc = "Widgets frames" })
-map("n", "<leader>ds", "<cmd>lua require'dap.ui.widgets'.scopes()<CR>", { desc = "Widgets scopes" })
+-- map("n", "<leader>ds", "<cmd>lua require'dap.ui.widgets'.scopes()<CR>", { desc = "Widgets scopes" })
 
 -- C# debugging
 map("n", "<F5>", "<Cmd>lua require'csharp'.debug_project()<CR>", { desc = "Debug Project" })
