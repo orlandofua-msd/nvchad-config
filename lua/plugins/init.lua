@@ -137,4 +137,15 @@ return {
   {
     "OmniSharp/omnisharp-vim"
   },
+  {
+    "zeioth/compiler.nvim",
+    cmd = {
+      "CompilerOpen",
+      "CompilerToggleResults",
+      "CompilerRedo",
+      "CompilerStop"
+    },
+    dependencies = { "stevearc/overseer.nvim" },
+    opts = {},
+  },
 }
