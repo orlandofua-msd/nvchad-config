@@ -15,7 +15,7 @@ vim.fn.sign_define('DapBreakpoint', {text='🔴', texthl='', linehl='', numhl=''
 map("n", "<leader>dl", "<cmd>lua require'dap'.step_into()<CR>", { desc = "Debugger step into" })
 map("n", "<leader>dj", "<cmd>lua require'dap'.step_over()<CR>", { desc = "Debugger step over" })
 map("n", "<leader>dk", "<cmd>lua require'dap'.step_out()<CR>", { desc = "Debugger step out" })
-map("n", "<leader>d<leader>", "<cmd>lua require'dap'.continue()<CR>", { desc = "Debugger continue" })
+map("n", "<F5>", "<cmd>lua require'dap'.continue()<CR>", { desc = "Debugger continue" })
 map("n", "<F9>", "<cmd>lua require'dap'.toggle_breakpoint()<CR>", { desc = "Debugger toggle breakpoint" })
 map("n", "<leader>d<space>", "<cmd>lua require'dap'.toggle_breakpoint()<CR>", { desc = "Debugger toggle breakpoint" })
 map("n", "<leader>dd", "<cmd>lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>",
@@ -34,3 +34,8 @@ map("n", "<leader>df", "<cmd>lua require'dap.ui.widgets'.frames()<CR>", { desc =
 -- C# debugging
 map("n", "<F5>", "<Cmd>lua require'csharp'.debug_project()<CR>", { desc = "Debug Project" })
 map("n", "<S-F5>", "<Cmd>lua require'csharp'.run_project()<CR>", { desc = "Run Project" })
+
+-- compiler.nvim
+map("n", "<leader>mm", vim.cmd.CompilerOpen, { desc = "Open compiler" })
+map("n", "<leader>mr", vim.cmd.CompilerRedo, { desc = "Compiler redo" })
+map("n", "<leader>mt", vim.cmd.CompilerToggleResults, { desc = "Compiler results" })
