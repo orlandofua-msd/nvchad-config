@@ -32,7 +32,7 @@ dap.configurations.rust = lldb.config
 
 dap.adapters.coreclr = {
   type = 'executable',
-  command = vim.fn.stdpath('data') .. '/mason/bin/netcoredbg',
+  command = vim.fn.stdpath('data') .. '/mason/packages/netcoredbg/netcoredbg/netcoredbg.exe',
   args = { '--interpreter=vscode' }
 }
 
@@ -42,7 +42,8 @@ dap.configurations.cs = {
     name = 'launch - netcoredbg',
     request = 'launch',
     program = function()
-      return vim.fn.input('Path to DLL or executable: ', vim.fn.getcwd() .. '/bin/Program.exe', 'file')
+      return vim.fn.input('Path to DLL or executable: ', vim.fn.getcwd() .. '/', 'file')
     end,
+    cwd = vim.fn.getcwd(),
   },
 }
