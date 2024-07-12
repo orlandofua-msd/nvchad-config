@@ -33,10 +33,10 @@ return {
       },
     },
     setup = function()
-      require("mason").setup({
+      require("mason").setup {
         PATH = "prepend",
-      })
-    end
+      }
+    end,
   },
   --
   {
@@ -55,7 +55,7 @@ return {
   },
   {
     "jmederosalvarado/roslyn.nvim",
-    lazy = false
+    lazy = false,
   },
   {
     "kdheepak/lazygit.nvim",
@@ -71,26 +71,28 @@ return {
     },
     keys = {
       { "<leader>lg", "<cmd>LazyGit<cr>", desc = "LazyGit" },
-      { "<C-j>",      "<pgdown>",         desc = "Scroll down main window" },
-      { "<C-k>",      "<pgup>",           desc = "Scroll up main window" },
-    }
+      { "<C-j>", "<pgdown>", desc = "Scroll down main window" },
+      { "<C-k>", "<pgup>", desc = "Scroll up main window" },
+    },
   },
   {
     "iamcco/markdown-preview.nvim",
     cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
     ft = { "markdown" },
-    build = function() vim.fn["mkdp#util#install"]() end,
+    build = function()
+      vim.fn["mkdp#util#install"]()
+    end,
   },
   {
     "mfussenegger/nvim-dap",
     config = function()
-      require("configs.nvim-dap")
+      require "configs.nvim-dap"
     end,
   },
   {
     "rcarriga/nvim-dap-ui",
     config = function()
-      local dap, dapui = require("dap"), require("dapui")
+      local dap, dapui = require "dap", require "dapui"
 
       dapui.setup()
 
@@ -132,10 +134,10 @@ return {
     config = function()
       require("mason").setup()
       require("csharp").setup()
-    end
+    end,
   },
   {
-    "OmniSharp/omnisharp-vim"
+    "OmniSharp/omnisharp-vim",
   },
   {
     "zeioth/compiler.nvim",
@@ -143,9 +145,25 @@ return {
       "CompilerOpen",
       "CompilerToggleResults",
       "CompilerRedo",
-      "CompilerStop"
+      "CompilerStop",
     },
     dependencies = { "stevearc/overseer.nvim" },
     opts = {},
+  },
+  {
+    "SmiteshP/nvim-navbuddy",
+    dependencies = {
+      "neovim/nvim-lspconfig",
+      "SmiteshP/nvim-navic",
+      "MunifTanjim/nui.nvim",
+    },
+    opts = {
+      lsp = {
+        auto_attach = true,
+      },
+    },
+    config = function(_, opts)
+      require("nvim-navbuddy").setup(opts)
+    end,
   },
 }

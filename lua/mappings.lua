@@ -9,6 +9,7 @@ map("i", "jk", "<ESC>")
 map("n", "gd", "<cmd>Telescope lsp_definitions<cr>", { desc = "Go to definition" })
 map("t", "<C-j>", "<Cmd>call feedkeys('\\<PageDown>')<CR>", { noremap = true, silent = true })
 map("t", "<C-k>", "<Cmd>call feedkeys('\\<PageUp>')<CR>", { noremap = true, silent = true })
+map("n", "gm", "<cmd>Navbuddy<cr>", { desc = "Go to method" })
 
 -- Nvim dap
 vim.fn.sign_define('DapBreakpoint', {text='🔴', texthl='', linehl='', numhl=''})
@@ -39,3 +40,4 @@ map("n", "<S-F5>", "<Cmd>lua require'csharp'.run_project()<CR>", { desc = "Run P
 map("n", "<leader>mm", vim.cmd.CompilerOpen, { desc = "Open compiler" })
 map("n", "<leader>mr", vim.cmd.CompilerRedo, { desc = "Compiler redo" })
 map("n", "<leader>mt", vim.cmd.CompilerToggleResults, { desc = "Compiler results" })
+
