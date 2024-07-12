@@ -162,8 +162,5 @@ return {
         auto_attach = true,
       },
     },
-    config = function(_, opts)
-      require("nvim-navbuddy").setup(opts)
-    end,
   },
 }

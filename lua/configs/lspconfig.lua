@@ -32,3 +32,11 @@ lspconfig.omnisharp.setup {
   on_init = on_init,
   capabilities = capabilities,
 }
+
+local navbuddy = require("nvim-navbuddy")
+
+lspconfig.clangd.setup {
+  on_attach = function(client, bufnr)
+    navbuddy.attach(client, bufnr)
+  end
+}
